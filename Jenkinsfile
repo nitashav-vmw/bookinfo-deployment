@@ -62,7 +62,7 @@ spec:
               echo $data
               mkdir local
               imgpkg copy -b harbor.tools.azure.nvcodes.net/isv-release/bookinfo:$data --to-repo harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies 
-              imgpkg pull -b harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies:$data  "${KBLD_REGISTRY_USERNAME_0}" --registry-password "${KBLD_REGISTRY_PASSWORD_0}" -o ./local
+              imgpkg pull -b harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies:$data   -o ./local
               ls . 
               ''') 
              
