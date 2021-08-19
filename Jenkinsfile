@@ -30,15 +30,15 @@ spec:
         secretKeyRef:
           name: bookinfo-secrets
           key: registry-password
-     - name: IMGPKG_REGISTRY_HOSTNAME_0
-       value: "harbor.tools.azure.nvcodes.net"
-     - name: IMGPKG_REGISTRY_USERNAME_0
-       valueFrom:
+    - name: IMGPKG_REGISTRY_HOSTNAME_0
+      value: "harbor.tools.azure.nvcodes.net"
+    - name: IMGPKG_REGISTRY_USERNAME_0
+      valueFrom:
         secretKeyRef:
           name: bookinfo-secrets
           key: registry-user
-     - name: IMGPKG_REGISTRY_PASSWORD_0
-       valueFrom:
+    - name: IMGPKG_REGISTRY_PASSWORD_0
+      valueFrom:
         secretKeyRef:
           name: bookinfo-secrets
           key: registry-password
