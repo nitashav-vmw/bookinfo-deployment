@@ -63,7 +63,7 @@ spec:
               mkdir local
               imgpkg copy -b harbor.tools.azure.nvcodes.net/isv-release/bookinfo:$data --to-repo harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies 
               imgpkg pull -b harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies:$data   -o ./local
-              ls . 
+              ls ./local
               ''') 
              
             }
@@ -80,7 +80,8 @@ spec:
                   nf="$(basename $f)"
                   echo "Processing $nf file..."
                   # take action on each file. $nf store current file name
-                  kbld -f ./deployment/$nf -f ./.imgpkg/images.yml > ./new-deployment/$nf
+                  kbld -f $f -f ./.imgpkg/images.yml > ./new-deployment/$nf
+                  cat ./new-deployment/$nf
                 done
                 
                 mv ./new-deployment/* ./deployment/
