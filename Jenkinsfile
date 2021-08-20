@@ -73,24 +73,20 @@ spec:
                 sh ('''
                 cd local
                 FILES=./resource-definitions/**/*
-                mkdir new-deployment
                 for f in $FILES
                 do
                   echo "$f"
                   nf="$(basename $f)"
                   echo "Processing $nf file..."
                   # take action on each file. $nf store current file name
-                  kbld -f $f -f ./.imgpkg/images.yml > $f
-                  cat $f
+                  kbld -f $f -f ./.imgpkg/images.yml > $f.resolved
+                  cat $f.resolved
+                  mv $f.resolved $f
                 done
-                
-                ## mv ./new-deployment/* ./deployment/
-                
-                rm -r ./new-deployment
-                
+               
                 cd ..
                 
-                cp ./local/deployment/* ./esf-gitops/base/
+                ## cp ./local/deployment/* ./esf-gitops/base/
                 ''')
             }
         }
