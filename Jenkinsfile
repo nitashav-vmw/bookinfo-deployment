@@ -81,10 +81,10 @@ spec:
                   echo "Processing $nf file..."
                   # take action on each file. $nf store current file name
                   kbld -f $f -f ./.imgpkg/images.yml > $f
-                  cat ./new-deployment/$nf
+                  cat $f
                 done
                 
-                mv ./new-deployment/* ./deployment/
+                ## mv ./new-deployment/* ./deployment/
                 
                 rm -r ./new-deployment
                 
