@@ -59,6 +59,7 @@ spec:
         stage('bundle-pull') {
             steps {
               sh('''
+              ls .
               echo $data
               mkdir local
               imgpkg copy -b harbor.tools.azure.nvcodes.net/isv-release/bookinfo:$data --to-repo harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies 
@@ -80,13 +81,12 @@ spec:
                   echo "Processing $nf file..."
                   # take action on each file. $nf store current file name
                   kbld -f $f -f ./.imgpkg/images.yml > $f.resolved
-                  cat $f.resolved
                   mv $f.resolved $f
                 done
                
                 cd ..
-                
-                ## cp ./local/deployment/* ./esf-gitops/base/
+                mkdir ./base
+                 cp ./local/resource-definitions/**/* ./base/
                 ''')
             }
         }
