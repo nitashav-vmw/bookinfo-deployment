@@ -99,7 +99,7 @@ spec:
                   mv $f.resolved $f
                 done
                
-                cd ..
+                cd ../bookinfo-deployment
                 mkdir ./base
                  cp ./local/resource-definitions/**/* ./base/
                  ls ./base
@@ -113,7 +113,7 @@ spec:
             steps {
                 container('jnlp'){
                     sh('''
-                        ##cd ./base
+                        cd ./bookinfo-deployment/base
                         git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
                         git config --global user.email "nitashav@vmware.com"
                         git config --global user.name "nitashav-vmw"
