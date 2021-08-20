@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kbld.k14s.io/images: |
+      - Metas:
+        - Type: preresolved
+          URL: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:5fbfd3a14fff229f15e689d07e5214bc5eb1e929766e45eda761cbc9ef7a5589
+        URL: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:5fbfd3a14fff229f15e689d07e5214bc5eb1e929766e45eda761cbc9ef7a5589
+  labels:
+    app: ratings
+    version: v1
+  name: ratings-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: ratings
+        version: v1
+    spec:
+      containers:
+      - image: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:5fbfd3a14fff229f15e689d07e5214bc5eb1e929766e45eda761cbc9ef7a5589
+        imagePullPolicy: IfNotPresent
+        name: ratings
+        ports:
+        - containerPort: 9080
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: bookinfo-ratings

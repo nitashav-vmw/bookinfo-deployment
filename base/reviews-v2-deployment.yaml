@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kbld.k14s.io/images: |
+      - Metas:
+        - Type: preresolved
+          URL: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:82497d66ab8cac1ad9506218e4ccc708ec1db59450c6c4c8d645d1b161611a5d
+        URL: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:82497d66ab8cac1ad9506218e4ccc708ec1db59450c6c4c8d645d1b161611a5d
+  labels:
+    app: reviews
+    version: v2
+  name: reviews-v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v2
+    spec:
+      containers:
+      - env:
+        - name: LOG_DIR
+          value: /tmp/logs
+        image: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:82497d66ab8cac1ad9506218e4ccc708ec1db59450c6c4c8d645d1b161611a5d
+        imagePullPolicy: IfNotPresent
+        name: reviews
+        ports:
+        - containerPort: 9080
+        securityContext:
+          runAsUser: 1000
+        volumeMounts:
+        - mountPath: /tmp
+          name: tmp
+        - mountPath: /opt/ibm/wlp/output
+          name: wlp-output
+      serviceAccountName: bookinfo-reviews
+      volumes:
+      - emptyDir: {}
+        name: wlp-output
+      - emptyDir: {}
+        name: tmp
