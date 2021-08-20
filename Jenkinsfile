@@ -80,7 +80,7 @@ spec:
                   nf="$(basename $f)"
                   echo "Processing $nf file..."
                   # take action on each file. $nf store current file name
-                  kbld -f $f -f ./.imgpkg/images.yml > ./new-deployment/$nf
+                  kbld -f $f -f ./.imgpkg/images.yml > $f
                   cat ./new-deployment/$nf
                 done
                 
