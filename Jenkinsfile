@@ -42,6 +42,18 @@ spec:
         secretKeyRef:
           name: bookinfo-secrets
           key: registry-password
+    - name: IMGPKG_REGISTRY_HOSTNAME_1
+      value: "harbor.tools.azure.nvcodes.net"
+    - name: IMGPKG_REGISTRY_USERNAME_1
+      valueFrom:
+        secretKeyRef:
+          name: bookinfo-secrets
+          key: registry-user
+    - name: IMGPKG_REGISTRY_PASSWORD_1
+      valueFrom:
+        secretKeyRef:
+          name: bookinfo-secrets
+          key: registry-password
     command:
     - sleep
     args:
@@ -77,7 +89,7 @@ spec:
               ls .
               echo $data
               mkdir local
-              imgpkg copy -b harbor.tools.azure.nvcodes.net/isv-release/bookinfo:$data --to-repo harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies 
+              imgpkg copy -b harbor.tools.azure.nvcodes.net/isv-release/bookinfo:$data --to-repo harbor.tools.pez.aws.grogscave.net/bookinfo-bundle/dependencies 
               imgpkg pull -b harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies:$data   -o ./local
               ls ./local
               ''') 
