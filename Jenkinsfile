@@ -102,6 +102,8 @@ spec:
                         git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
                         git config --global user.email "nitashav@vmware.com"
                         git config --global user.name "nitashav-vmw"
+                        git fetch origin master
+                        git merge origin/master
                         git branch -a
                         git add ./base/*
                         git diff-index --quiet main ||git commit  -m "Latest changes from ISV"
