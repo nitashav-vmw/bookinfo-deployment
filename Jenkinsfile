@@ -43,7 +43,7 @@ spec:
           name: bookinfo-secrets
           key: registry-password
     - name: IMGPKG_REGISTRY_HOSTNAME_1
-      value: "harbor.tools.pez.aws.grogscave.net"
+      value: "carvel-harbor.customer0.io"
     - name: IMGPKG_REGISTRY_USERNAME_1
       valueFrom:
         secretKeyRef:
@@ -89,8 +89,8 @@ spec:
               ls .
               echo $data
               mkdir local
-              imgpkg copy -b harbor.tools.azure.nvcodes.net/isv-release/bookinfo:$data --to-repo harbor.tools.pez.aws.grogscave.net/bookinfo-bundle/dependencies 
-              imgpkg pull -b harbor.tools.pez.aws.grogscave.net/bookinfo-bundle/dependencies:$data   -o ./local
+              imgpkg copy -b harbor.tools.azure.nvcodes.net/isv-release/bookinfo:$data --to-repo carvel-harbor.customer0.io/bookinfo-bundle/dependencies 
+              imgpkg pull -b carvel-harbor.customer0.io/bookinfo-bundle/dependencies:$data   -o ./local
               ls ./local
               ''') 
              
