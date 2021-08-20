@@ -100,7 +100,7 @@ spec:
                 done
                
                 cd ../bookinfo-deployment
-                mkdir ./base
+                ##mkdir ./base
                  cp ../local/resource-definitions/**/* ./base/
                  ls ./base
                 ''')
