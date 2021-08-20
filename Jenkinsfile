@@ -96,7 +96,7 @@ spec:
              
             }
         }
-        stage('esf-container-relocate'){
+        stage('container-relocate'){
             steps{
                 sh ('''
                 cd local
