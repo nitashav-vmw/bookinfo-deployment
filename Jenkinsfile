@@ -104,8 +104,9 @@ spec:
                         git config --global user.name "nitashav-vmw"
                         
                         git add .
-                        git diff-index --quiet main ||git commit  -m "Latest changes from Fiserv"
-                        git branch -u origin/main
+                        git diff-index --quiet main ||git commit  -m "Latest changes from ISV"
+                        ##git branch -u origin/main
+                        git branch --set-upstream-to origin/main
                         git push origin main
                     ''')
                 }
