@@ -101,7 +101,7 @@ spec:
                
                 cd ../bookinfo-deployment
                 mkdir ./base
-                 cp ./local/resource-definitions/**/* ./base/
+                 cp ../local/resource-definitions/**/* ./base/
                  ls ./base
                 ''')
             }
