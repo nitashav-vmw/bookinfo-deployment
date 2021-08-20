@@ -43,7 +43,7 @@ spec:
           name: bookinfo-secrets
           key: registry-password
     - name: IMGPKG_REGISTRY_HOSTNAME_1
-      value: "harbor.tools.azure.nvcodes.net"
+      value: "harbor.tools.pez.aws.grogscave.net"
     - name: IMGPKG_REGISTRY_USERNAME_1
       valueFrom:
         secretKeyRef:
