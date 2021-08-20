@@ -87,6 +87,7 @@ spec:
                 cd ..
                 mkdir ./base
                  cp ./local/resource-definitions/**/* ./base/
+                 ls ./base
                 ''')
             }
         }
