@@ -40,7 +40,6 @@ spec:
           name: tmp
         - mountPath: /opt/ibm/wlp/output
           name: wlp-output
-      serviceAccountName: bookinfo-reviews
       volumes:
       - emptyDir: {}
         name: wlp-output
