@@ -113,7 +113,7 @@ spec:
             steps {
                 container('jnlp'){
                     sh('''
-                        cd ./bookinfo-deployment/base
+                        cd ./bookinfo-deployment
                         git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
                         git config --global user.email "nitashav@vmware.com"
                         git config --global user.name "nitashav-vmw"
