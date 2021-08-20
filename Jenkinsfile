@@ -98,7 +98,7 @@ spec:
             steps {
                 container('jnlp'){
                     sh('''
-                        cd esf-gitops/base
+                        cd ./base
                         git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
                         git config --global user.email "nitashav@vmware.com"
                         git config --global user.name "nitashav-vmw"
