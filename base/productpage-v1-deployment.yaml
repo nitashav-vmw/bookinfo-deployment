@@ -6,8 +6,8 @@ metadata:
     kbld.k14s.io/images: |
       - Metas:
         - Type: preresolved
-          URL: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:63ac3b4fb6c3ba395f5d044b0e10bae513afb34b9b7d862b3a7c3de7e0686667
-        URL: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:63ac3b4fb6c3ba395f5d044b0e10bae513afb34b9b7d862b3a7c3de7e0686667
+          URL: carvel-harbor.customer0.io/bookinfo-bundle/dependencies@sha256:63ac3b4fb6c3ba395f5d044b0e10bae513afb34b9b7d862b3a7c3de7e0686667
+        URL: carvel-harbor.customer0.io/bookinfo-bundle/dependencies@sha256:63ac3b4fb6c3ba395f5d044b0e10bae513afb34b9b7d862b3a7c3de7e0686667
   labels:
     app: productpage
     version: v1
@@ -25,7 +25,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:63ac3b4fb6c3ba395f5d044b0e10bae513afb34b9b7d862b3a7c3de7e0686667
+      - image: carvel-harbor.customer0.io/bookinfo-bundle/dependencies@sha256:63ac3b4fb6c3ba395f5d044b0e10bae513afb34b9b7d862b3a7c3de7e0686667
         imagePullPolicy: IfNotPresent
         name: productpage
         ports:

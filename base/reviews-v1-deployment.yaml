@@ -6,8 +6,8 @@ metadata:
     kbld.k14s.io/images: |
       - Metas:
         - Type: preresolved
-          URL: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:d1b8447be70549f1f7303f266d88c16112e2695cc110603fdb1c8ee432a627bf
-        URL: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:d1b8447be70549f1f7303f266d88c16112e2695cc110603fdb1c8ee432a627bf
+          URL: carvel-harbor.customer0.io/bookinfo-bundle/dependencies@sha256:d1b8447be70549f1f7303f266d88c16112e2695cc110603fdb1c8ee432a627bf
+        URL: carvel-harbor.customer0.io/bookinfo-bundle/dependencies@sha256:d1b8447be70549f1f7303f266d88c16112e2695cc110603fdb1c8ee432a627bf
   labels:
     app: reviews
     version: v1
@@ -28,7 +28,7 @@ spec:
       - env:
         - name: LOG_DIR
           value: /tmp/logs
-        image: harbor.tools.azure.nvcodes.net/bookinfo-bundle/dependencies@sha256:d1b8447be70549f1f7303f266d88c16112e2695cc110603fdb1c8ee432a627bf
+        image: carvel-harbor.customer0.io/bookinfo-bundle/dependencies@sha256:d1b8447be70549f1f7303f266d88c16112e2695cc110603fdb1c8ee432a627bf
         imagePullPolicy: IfNotPresent
         name: reviews
         ports:
