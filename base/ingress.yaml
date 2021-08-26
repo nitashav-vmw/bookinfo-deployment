@@ -4,6 +4,7 @@ kind: Ingress
 metadata:
   annotations:
     ianz: triggerbuild
+    springone: demo
   name: productpage-ingress
 spec:
   rules:
